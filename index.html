@@ -1,74 +1,222 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transición de Página a Video</title>
+    <title>Página Principal</title>
     <style>
-        body {
+        /* Quitar márgenes y padding globales */
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            transition: opacity 1s ease-in-out;
-}
-.contenido {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-            text-align: center;
-            opacity: 1;
-            transition: opacity 1s ease-in-out;
-}
-.video-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    display: none; /* Ocultar inicialmente */
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    z-index: 2;
-}
+            padding: 0;
+            box-sizing: border-box; /* Asegura que el tamaño de los elementos incluya borde y padding */
+        }
 
-        video {
-            width: 100%;
-            height: 100%;
-}
+        /* Sección verde lima */
+        .header {
+            background-color: #3399ff;
+            text-align: center;
+            color: #000000;
+            padding: 20px;
+            border: none; /* Quitar bordes */
+        }
+        .header h1 {
+            margin-top: 10px;
+        }
+
+        /* Sección azul oscuro con marquee */
+        .marquee {
+            background-color: #006699;
+            color: #FFFF00;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            text-align: center;
+            border: none; /* Quitar bordes */
+        }
+
+        /* Sección roja con enlaces */
+        .navbar {
+            background-color: #FF0000;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end; /* Mueve los elementos a la derecha */
+            gap: 20px;
+        }
+        
+        .navbar i {
+            margin-right: auto;
+        }
+    
+        .navbar a {
+            display: flex; /* Permite alinear el ícono y el texto */
+            align-items: center; /* Centra los elementos verticalmente */
+            gap: 5px; /* Espacio pequeño entre el ícono y el texto */
+            text-decoration: none; /* Quita el subrayado del enlace */
+            color: white; /* Asegura que el texto sea visible */
+            font-size: 16px; /* Ajusta el tamaño del texto */
+        }
+        
+        .navbar i {
+            margin-right: auto; /* Mueve el ícono a la izquierda */
+        }
+        /* Sección contenedora */
+    /* Sección contenedora */
+    .content-section {
+        display: flex; /* Divide en dos columnas */
+        gap: 20px; /* Separación entre columnas */
+        margin-top: 20px; /* Separación de la sección roja */
+        align-items: flex-start; /* Asegurar que los elementos de las columnas empiecen arriba */
+    }
+
+    /* Columna izquierda con imagen */
+    .content-image {
+        width: 50%; /* La imagen ocupa el 50% del ancho */
+        height: 100%; /* Ajusta la altura */
+    }
+
+    /* Columna derecha con texto */
+    .content-text {
+        width: 50%; /* La columna de texto ocupa el otro 50% */
+    }
+
+    /* Texto de introducción y estilo general */
+    .content-text p {
+        margin: 0; /* Quitar márgenes predeterminados */
+        margin-bottom: 10px; /* Añadir separación entre párrafos */
+        font-size: 16px;
+    }
+
+    /* Subtítulos en negrilla */
+    .content-text h2 {
+        font-weight: bold;
+        margin-top: 10px; /* Separación respecto al texto anterior */
+        margin-bottom: 5px; /* Separación respecto a la lista */
+    }
+
+    /* Listas desordenadas */
+    .content-text ul {
+        list-style-type: disc; /* Punto antes de cada texto */
+        margin: 0;
+        margin-bottom: 20px; /* Separación entre listas */
+        padding-left: 20px;
+    }
+
+    /* Footer */
+    .footer {
+        background-color: #003366; /* Azul oscuro */
+        text-align: center; /* Alineación centrada horizontalmente */
+        padding: 15px; /* Espaciado interno */
+        display: flex; /* Muestra los elementos en fila */
+        justify-content: center; /* Asegura que ambos textos estén centrados horizontalmente */
+        gap: 20px; /* Espaciado entre los textos */
+    }
+    .footer p {
+        margin: 0; /* Quita márgenes predeterminados */
+        font-size: 20px;
+    }
+    .footer .rights {
+        color: #FFFFFF; /* Texto blanco */
+    }
+    .footer .info {
+        color: #6699CC; /* Azul más claro */
+    }
+    .icon {
+        width: 30px; /* Tamaño uniforme para los íconos */
+        height: 30px;
+        filter: invert(1); /* Invierte completamente los colores */
+    }
+
+
+
     </style>
 </head>
 <body>
 
-    <div class="contenido">
-        <h1>esto es una pagina de prueba</h1>
-        <p>depende</p>
-        <button onclick="activarVideo()">transicionar a video</button>
+    <!-- Sección verde lima -->
+    <div class="header">
+        <p>REPÚBLICA BOLIVARIANA DE VENEZUELA<br>
+        MINISTERIO DEL PODER POPULAR PARA LA DEFENSA<br>
+        UNIVERSIDAD NACIONAL EXPERIMENTAL POLITÉCNICA<br>
+        DE LA FUERZA ARMADA NACIONAL BOLIVARIANA<br>
+        NÚCLEO LA GUAIRA</p>
+        <h1>Realizado por el Grupo 6</h1>
     </div>
 
-    <div class="video-container">
-        <video id="miVideo" src="1.mp4" muted autoplay playsinline></video>
+    <!-- Sección azul oscuro con texto marquee -->
+    <div class="marquee">
+        <marquee behavior="scroll" direction="left">legolas por favor</marquee>
     </div>
-    
-    <script>
-        document.addEventListener("click", function() {
-            let video = document.getElementById("miVideo");
-            video.muted = false; // Activar el sonido
-            video.play(); // Reproducir de nuevo para asegurarse
-    });
-    </script>
-    
-    <script>
-        function activarVideo() {
-            document.querySelector('.contenido').style.opacity = '0';
-            let videoContainer = document.querySelector('.video-container');
-            videoContainer.style.display = 'flex';  // Muestra el contenedor
-            setTimeout(() => {
-                videoContainer.style.opacity = '1'; // Aparece gradualmente
-        }, 100); // Pequeño retardo para la transición suave
-        }
-    </script>
+
+    <!-- Sección roja con enlaces -->
+    <div class="navbar">
+        <a href="index2.html">
+            <img src="./iconos/img.svg" class="icon"> 
+            Ingreso
+        </a>
+        <a href="./descargas/gracias por hacer click.zip" download="2">
+            <img src="./iconos/img.svg" class="icon"> 
+            Imágenes
+        </a>
+        <a onclick="playSound()">
+            <img src="./iconos/telefono.svg" class="icon"> 
+            Contacto
+        </a>
+        <!-- Etiqueta de audio oculta -->
+        <audio id="audioPlayer">
+            <source src="./audio/a.mp3" type="audio/mp3">
+        </audio>
+        <!-- Script para reproducir el audio -->
+        <script>
+            function playSound() {
+                var audio = document.getElementById("audioPlayer");
+                audio.play();
+            }
+        </script>
+
+
+    </div>
+
+        <!-- Sección dividida en dos columnas -->
+    <div class="content-section">
+        <!-- Columna izquierda: Imagen -->
+        <div class="content-image">
+            <img src="./imagenes/2.png" alt="Descripción de la imagen" width="100%" height="100%">
+        </div>
+
+        <!-- Columna derecha: Texto -->
+        <div class="content-text">
+            <h2>Lenguaje de Programación II</h2>
+
+            <!-- Estudiantes -->
+            <h3>Estudiantes</h3>
+            <ul>
+                <li>Luis Vásquez CI:31.748.686</li>
+                <li>Adonai Alvarado CI:30.225.765</li>
+                <li>Loyner Fernández CI:30.970.022</li>
+                <li>Yhon Vivas CI:31.380.267</li>
+            </ul>
+
+            <!-- sobre nosotros -->
+            <h3>Sobre nosotros</h3>
+            <ul>
+                <li>Luis Vásquez: "Soy estudiante de la unefa, vivo en macuto y tengo 19 años, en mis tiempos libres suelo hacer pequeños
+                    proyectos de videojuegos en godot, y actualmente ando aprendiendo a usar blender para modelar escenarios o animar personajes en 3D,
+                    de resto no suelo hacer muchas otras cosas, aprender un poco de cada cosa que vaya a necesitar o cosas que me interesen"
+                </li><br>
+                <li>Adonai Alvarado: "Vivo en La Guaira, tengo 20 años. Me gustan las películas, los videojuegos, leer, el arte. A veces dibujo un poco,
+                     se me da bien. Estudio en la UNEFA y me encanta la programación y la tecnología en general"</li><br>
+                <li>Loyner Fernández: "Soy un chamo que vive en vista al mar, tengo 20 años, estudio en la UNEFA ingeniería de sistemas y estoy cursando el 5to semestre de la carrera,
+                     y como Hobbies me gusta jugar fútbol, jugar videojuegos, me gusta escuchar y componer música, gracias"</li><br>
+                <li>Yhon Vivas: "Tengo 20 años, vivo en la alcabala, soy estudiante de Ingeniería Sistemas en la UNEFA , me gusta jugar videojuegos
+                     y dibujar"</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <p class="rights">&copy;Todos los Derechos Reservados.</p>
+        <p class="info">Estudiantes de Lenguaje de Programación II</p>
+    </div>
 
 </body>
 </html>

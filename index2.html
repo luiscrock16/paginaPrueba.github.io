@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <form class="login-form" method="POST" action="validar.php">
+    <title>Interfaz de Personal</title>
+    <style>
+        /* Reset de márgenes y bordes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Asegura que el tamaño de los elementos incluya borde y padding */
+        }
+
+        /* Estilo del título */
+        .title {
+            text-align: center;
+            color: #525252; /* Gris */
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Sección azul con texto amarillo desplazándose */
+        .marquee-section {
+            background-color: #006699;
+            padding: 10px;
+            margin-top: 15px; /* Separación desde el título */
+        }
+        .marquee-section marquee {
+            color: #FFFF00; /* Amarillo */
+            font-size: 18px;
+            direction: left; /* Texto va de izquierda a derecha */
+        }
+
+        /* Texto del comentario y asesoría técnica */
+        .text-section {
+            margin: 20px; /* Margen estándar para ambas líneas */
+            font-size: 18px; /* Tamaño uniforme para el texto */
+        }
+        .comment {
+            text-transform: uppercase; /* Comentario en mayúsculas */
+        }
+        .technical-advice {
+            margin-top:  20px;
+            font-weight: bold; /* Texto de asesoría técnica en negrillas */
+        }
+
+        /* Envoltorio para centrar el login */
+    .login-wrapper {
+        display: flex;
+        justify-content: center; /* Centrar horizontalmente */
+        align-items: flex-start; /* Inicia desde arriba */
+        margin-top: 50px; /* Separación respecto a asesoría técnica */
+    }
+
+    /* Contenedor del login con bordes azules */
+    .login-container {
+        width: 400px;
+        height: 300px;
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        border: 2px solid #0066CC; /* Bordes azules finos */
+        display: flex;
+        flex-direction: column; /* Mantiene la estructura interna */
+        align-items: center; /* Centra elementos dentro del contenedor */
+    }
+
+
+        /* Texto de Datos de Acceso */
+        .login-header {
+            background-color: #FF0000;
+            color: #FFFF00;
+            text-align: center;
+            padding: 6px;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Formulario de login */
+        .login-form {
+            padding: 20px;
+            width: 100%; /* Asegura que el formulario llene el contenedor */
+        }
+
+        /* Campos de entrada */
+        .input-group {
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 80%;
+        }
+        .input-group i {
+            font-size: 20px;
+            margin-right: 10px;
+            color: #777777;
+        }
+        .input-group input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+        }
+        .input-group input::placeholder {
+            color: #777777;
+        }
+
+        /* Botones */
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .button-group button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #FFFFFF;
+            font-size: 14px;
+            width: 48%;
+        }
+        .button-group .btn-red {
+            background-color: #FF0000;
+        }
+        .button-group .btn-blue {
+            background-color: #0066CC;
+        }
+        .icon_registro {
+            width: 30px; /* Tamaño uniforme para los íconos */
+            height: 30px;
+            object-fit: contain; /* Ajuste para que encaje dentro del círculo */
+            filter: invert(80%) sepia(100%) saturate(200%) hue-rotate(10deg);
+        }
+        .icon{
+            width: 30px; /* Tamaño uniforme para los íconos */
+            height: 30px;
+            object-fit: contain; /* Ajuste para que encaje dentro del círculo */
+            margin-right: 10px;
+        }
+    </style>
+    <body>
+
+        <!-- Título centrado en color gris -->
+        <h1 class="title">INTERFAZ DEL SISTEMA DE PERSONAL</h1>
+    
+        <!-- Sección azul con texto amarillo en movimiento -->
+        <div class="marquee-section">
+            <marquee behavior="scroll" direction="left">legolas por favor</marquee>
+        </div>
+    
+        <!-- Texto del comentario y asesoría técnica -->
+        <div class="text-section">
+            <p class="comment">
+                "Este sistema fue programado por <b>los estudiantes de lenguaje de programación II</b> para la división de personal de la universidad nacional experimental de la fuerza armada (<b>UNEFA</b>) núcleo la guaira."
+            </p>
+            <p class="technical-advice">
+                Asesoría Técnica: Dr. Nolis Cumares
+            </p>
+        </div>
+    
+        <!-- Contenedor del login dentro del wrapper -->
+        <div class="login-wrapper">
+            <div class="login-container">
+                <!-- Encabezado -->
+                <div class="login-header">
+                    <img src="./iconos/apagado.svg" class="icon_registro">Datos de Acceso</div>
+    
+                <!-- Formulario -->
+                <form class="login-form" method="POST" action="validar.php">
+                    <!-- Campo de correo electrónico -->
+                    <div class="input-group">
+                        <img src="./iconos/correo.svg" class="icon">
+                        <input type="email" name="correo" placeholder="Introduce tu correo electrónico" required>
+                    </div>
+    
+                    <!-- Campo de cédula de identidad -->
+                    <div class="input-group">
+                        <img src="./iconos/correo.svg" class="icon">
+                        <input type="text" name="cedula" placeholder="Introduce tu cédula de identidad" required>
+                    </div>
+    
+                    <!-- Campo de clave -->
+                    <div class="input-group">
+                        <img src="./iconos/candado.svg" class="icon">
+                        <input type="password" name="clave" placeholder="Introduce tu clave" required>
+                    </div>
+    
+                    <!-- Botones -->
+                    <div class="button-group">
+                        <button type="submit" class="btn-red">Entrar</button>
+                        <button type="button" class="btn-blue" onclick="window.location.href='index.html';">Salir</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    </body>
+    </html>
+    
+
