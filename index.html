@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transición de Página a Video</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: opacity 1s ease-in-out;
+}
+.contenido {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            text-align: center;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+}
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: none; /* Ocultar inicialmente */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 2;
+}
+
+        video {
+            width: 100%;
+            height: 100%;
+}
+    </style>
+</head>
+<body>
+
+    <div class="contenido">
+        <h1>esto es una pagina de prueba</h1>
+        <p>depende</p>
+        <button onclick="activarVideo()">transicionar a video</button>
+    </div>
+
+    <div class="video-container">
+        <video id="miVideo" src="1.mp4" muted autoplay playsinline></video>
+    </div>
+    
+    <script>
+        document.addEventListener("click", function() {
+            let video = document.getElementById("miVideo");
+            video.muted = false; // Activar el sonido
+            video.play(); // Reproducir de nuevo para asegurarse
+    });
+    </script>
+    
+    <script>
+        function activarVideo() {
+            document.querySelector('.contenido').style.opacity = '0';
+            let videoContainer = document.querySelector('.video-container');
+            videoContainer.style.display = 'flex';  // Muestra el contenedor
+            setTimeout(() => {
+                videoContainer.style.opacity = '1'; // Aparece gradualmente
+        }, 100); // Pequeño retardo para la transición suave
+        }
+    </script>
+
+</body>
+</html>
